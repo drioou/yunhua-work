@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js阶乘</title>
+    <script type="text/javascript">
+    // function add(num) {
+    //     // var N = prompt("请输入N："); //prompt() 方法用于显示可提示用户进行输入的对话框。
+    //     var sum = 1;
+    //     // if (num % 1 === 0 && num < 170) {
+    //         // if (num != 1) {
+    //             for (var i = 1; i < num; i++) {
+    //                 sum *= (i + 1);
+    //             }
+    //         // }
+
+    //     // } else {
+    //     //     sum = false;
+    //     // }
+    //     return sum;
+    // }
+
+    // add();
+
+    // function fact3(num) {
+    //     if (typeof num == "number" && num > 0) {
+    //         return (num <= 1) ? 1 : num * arguments.callee(num - 1);
+    //     }
+    // }
+    // document.write(fact3(10) + "<br/>");
+
+    // function factorial(num){
+    //     //判断是否是一个数字
+    //     var result = '';
+    //     var val;
+    //     var array = new Array();
+    //     var expression;
+    //     if(!isNaN(num)){
+    //       if(num < 0){
+    //         result = false;
+    //       }else if(num == 0){
+    //         result = 1;
+    //       }else{
+    //         //判断是否是整数
+    //         if(num % 1 === 0){
+    //           for(var i=1; i <= num; i++){
+    //             val = 1
+    //             expression = '';
+    //             for(var j=1; j <= i; j++){
+    //               expression = expression + j + '*' ;
+    //               val *= j;
+    //             }
+    //             // expression = expression.substr(0, expression.length - 1);
+
+    //             array[i] = val;
+    //             // result = result + expression + '=' +  val + '<br/>';
+
+    //           }
+    //         }else{
+    //           result = false;
+    //         }
+    //       }
+    //     }else{
+    //       result = false;
+    //     }
+    //     return result;
+    //   }
+
+    function factSeries(num){
+      
+      return (num<=1)?1:num*arguments.callee(num-1);
+    }
+    // function forFactSeries(t){
+    //   for(var i=0; i<=t; i++){
+    //     // document.write(factSeries(i)+" ");
+    //     arr[i]=factSeries(i);
+    //   }
+    //   console.log(arr);
+    // }
+
+    // function factorial(num) {
+    //     if (!Number.isInteger(num)) {
+    //         // console.log(0);
+    //         return null;
+    //     } else if (num > 170) {
+    //         console.log("请输入不大于170的整数");
+    //         return null;
+    //     } else if (!num) {
+    //         // console.log(1);
+    //         return 1;
+    //     } else {
+    //         num = num * factorial(num - 1);
+    //         // console.log(num);
+    //         return num;
+    //     }
+
+    // }
+    var arr = [];
+
+    function forFactSeries(t) {
+        for (var i = 0; i <= t; i++) {
+            // document.write(factSeries(i)+" ");
+            arr[i] = factSeries(i);
+        }
+        console.log(arr);
+    }
+
+
+    // forFactSeries(5);
+    // document.write(factSeries(10));
+    document.write((function f(n) {
+        console.time("a");
+        console.log(forFactSeries(100));
+        console.timeEnd("a");
+    })())
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

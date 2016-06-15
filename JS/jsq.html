@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>计数器</title>
+</head>
+
+<body>
+    <button type="button" id="js">计数</button>
+    <button type="button" id="js2">计数2</button>
+    <button type="button" id="ql">ql</button>
+    <p id="ctxt"></p>
+    <p id="ctxt2"></p>
+    <script>
+    var js = document.getElementById("js");
+    var ctxt = document.getElementById("ctxt");
+    var js2 = document.getElementById("js2");
+    var ctxt2 = document.getElementById("ctxt2");
+    var ql = document.getElementById("ql");
+    var counter = function() {
+        var count = 0;
+        return function() {
+            return ++count;
+        }
+    };
+    var c = counter();
+    js.onclick = function() {
+        ctxt.innerHTML = c();
+    }
+    var c2 = counter();
+    js2.onclick = function() {
+        ctxt2.innerHTML = c2();
+    }
+    var c3 = counter();
+    ql.onclick = function() {
+        ctxt2.innerHTML = c3();
+    };
+    </script>
+</body>
+
+</html>
